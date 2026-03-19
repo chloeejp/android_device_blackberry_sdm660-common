@@ -136,12 +136,12 @@ dalvik.vm.heapstartsize=8m
 dalvik.vm.heaptargetutilization=0.75
 
 # Display
-ro.hwui.render_ahead=20
+ro.hwui.render_ahead=2
 
 # DRM
 drm.service.enabled=true
 ro.com.widevine.cachesize=16777216
-persist.env.fastdorm.enabled=true
+persist.env.fastdorm.enabled=false
 persist.gsmapp.ezincall.video=false
 persist.sys.screenmode=1
 persist.vendor.dpm.feature=11
@@ -161,12 +161,12 @@ ro.opengles.version=196610
 persist.backup.ntpServer=0.pool.ntp.org
 
 # Logging
-persist.vendor.stbDebugCtlEnable=1
+persist.vendor.stbDebugCtlEnable=0
 ro.logdumpd.enabled=0
 
 # Miscellaneous
 persist.sys.bbsys=on
-persist.vendor.qcomsysd.enabled=1
+persist.vendor.qcomsysd.enabled=0
 ro.cp_system_other_odex=1
 sys.vendor.shutdown.waittime=500
 
@@ -180,13 +180,15 @@ ro.vendor.extension_library=libqti-perfd-client.so
 vendor.power.pasr.enabled=true
 
 # Radio
-persist.vendor.radio.enableadvancedscan=false
+persist.vendor.radio.enableadvancedscan=true
 persist.vendor.radio.apm_sim_not_pwdn=1
 persist.vendor.radio.sib16_support=1
 persist.vendor.radio.custom_ecc=1
 persist.vendor.radio.rat_on=combine
 persist.vendor.radio.mt_sms_ack=30
 persist.vendor.radio.procedure_bytes=SKIP
+persist.vendor.radio.data_con_rprt=1
+persist.vendor.radio.data_ltd_sys_ind=1
 vendor.rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
 
 # Sensors
