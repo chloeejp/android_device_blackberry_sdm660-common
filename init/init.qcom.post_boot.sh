@@ -2389,8 +2389,8 @@ case "$target" in
             echo 1 > /sys/devices/system/cpu/cpu0/online
             # configure governor settings for little cluster
             echo "interactive" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-            echo 1 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_sched_load
-            echo 1 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_migration_notif
+            echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_sched_load
+            echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_migration_notif
             echo "19000 1401600:39000" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay
             echo 90 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load
             echo 20000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate
@@ -2398,7 +2398,7 @@ case "$target" in
             echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy
             echo "85 1747200:95" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads
             echo 39000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time
-            echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/max_freq_hysteresis
+            echo 59000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/max_freq_hysteresis
             echo 633600 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
             echo 1 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/ignore_hispeed_on_notif
             echo 1 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/fast_ramp_down
@@ -2406,8 +2406,8 @@ case "$target" in
             echo 1 > /sys/devices/system/cpu/cpu4/online
             # configure governor settings for big cluster
             echo "interactive" > /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
-            echo 1 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_sched_load
-            echo 1 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_migration_notif
+            echo 0 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_sched_load
+            echo 0 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_migration_notif
             echo "19000 1401600:39000" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay
             echo 90 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load
             echo 20000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate
@@ -2416,7 +2416,7 @@ case "$target" in
             echo "85 1401600:90 2150400:95" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads
             echo 39000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time
             echo 59000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis
-            echo 1113600 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
+            echo 633600 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
             echo 1 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/ignore_hispeed_on_notif
             echo 1 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/fast_ramp_down
 
@@ -2430,19 +2430,19 @@ case "$target" in
             echo 1 > /sys/devices/system/cpu/cpu6/online
             echo 1 > /sys/devices/system/cpu/cpu7/online
 
-            # configure LPM
-            echo N > /sys/module/lpm_levels/system/pwr/cpu0/ret/idle_enabled
-            echo N > /sys/module/lpm_levels/system/pwr/cpu1/ret/idle_enabled
-            echo N > /sys/module/lpm_levels/system/pwr/cpu2/ret/idle_enabled
-            echo N > /sys/module/lpm_levels/system/pwr/cpu3/ret/idle_enabled
-            echo N > /sys/module/lpm_levels/system/perf/cpu4/ret/idle_enabled
-            echo N > /sys/module/lpm_levels/system/perf/cpu5/ret/idle_enabled
-            echo N > /sys/module/lpm_levels/system/perf/cpu6/ret/idle_enabled
-            echo N > /sys/module/lpm_levels/system/perf/cpu7/ret/idle_enabled
-            echo N > /sys/module/lpm_levels/system/pwr/pwr-l2-dynret/idle_enabled
-            echo N > /sys/module/lpm_levels/system/perf/perf-l2-dynret/idle_enabled
-            echo N > /sys/module/lpm_levels/system/pwr/pwr-l2-ret/idle_enabled
-            echo N > /sys/module/lpm_levels/system/perf/perf-l2-ret/idle_enabled
+            # configure LPM - enable retention for power savings
+            echo Y > /sys/module/lpm_levels/system/pwr/cpu0/ret/idle_enabled
+            echo Y > /sys/module/lpm_levels/system/pwr/cpu1/ret/idle_enabled
+            echo Y > /sys/module/lpm_levels/system/pwr/cpu2/ret/idle_enabled
+            echo Y > /sys/module/lpm_levels/system/pwr/cpu3/ret/idle_enabled
+            echo Y > /sys/module/lpm_levels/system/perf/cpu4/ret/idle_enabled
+            echo Y > /sys/module/lpm_levels/system/perf/cpu5/ret/idle_enabled
+            echo Y > /sys/module/lpm_levels/system/perf/cpu6/ret/idle_enabled
+            echo Y > /sys/module/lpm_levels/system/perf/cpu7/ret/idle_enabled
+            echo Y > /sys/module/lpm_levels/system/pwr/pwr-l2-dynret/idle_enabled
+            echo Y > /sys/module/lpm_levels/system/perf/perf-l2-dynret/idle_enabled
+            echo Y > /sys/module/lpm_levels/system/pwr/pwr-l2-ret/idle_enabled
+            echo Y > /sys/module/lpm_levels/system/perf/perf-l2-ret/idle_enabled
             # enable LPM
             echo 0 > /sys/module/lpm_levels/parameters/sleep_disabled
 
