@@ -6,8 +6,8 @@
 key 5     4
 key 11    0
 key 14    DEL
-key 16    Q
-key 17    W
+key 16    A
+key 17    Z
 key 18    E
 key 19    R
 key 20    T
@@ -17,7 +17,7 @@ key 23    I
 key 24    O
 key 25    P
 key 28    ENTER
-key 30    A
+key 30    Q
 key 31    S
 key 32    D
 key 33    F
@@ -27,7 +27,7 @@ key 36    J
 key 37    K
 key 38    L
 key 42    SHIFT_LEFT
-key 44    Z
+key 44    W
 key 45    X
 key 46    C
 key 47    V
