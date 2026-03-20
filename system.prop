@@ -278,5 +278,8 @@ persist.backup.ntpServer="0.pool.ntp.org"
 # enable IZat OptInApp overlay
 persist.vendor.overlay.izat.optin=rro
 
+# Disable app link domain verification
+debug.pm.disable_app_link_verification=true
+
 # Updater URL
-lineage.updater.uri=https://fumo.enterprises/ota/api/v1/{device}/{type}/noincr
+#lineage.updater.uri=https://fumo.enterprises/ota/api/v1/{device}/{type}/noincr
