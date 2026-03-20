@@ -111,7 +111,6 @@ ro.wifi.power.reduction=1
 
 debug.sf.enable_hwc_vds=1
 debug.sf.hw=1
-debug.sf.latch_unsignaled=1
 debug.gralloc.enable_fb_ubwc=1
 dalvik.vm.heapsize=36m
 dev.pm.dyn_samplingrate=1
@@ -277,9 +276,6 @@ persist.backup.ntpServer="0.pool.ntp.org"
 
 # enable IZat OptInApp overlay
 persist.vendor.overlay.izat.optin=rro
-
-# Disable app link domain verification
-debug.pm.disable_app_link_verification=true
 
 # Updater URL
 #lineage.updater.uri=https://fumo.enterprises/ota/api/v1/{device}/{type}/noincr
