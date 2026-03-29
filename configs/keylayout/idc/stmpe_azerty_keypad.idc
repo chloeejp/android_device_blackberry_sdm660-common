@@ -10,4 +10,4 @@ device.internal = 1
 
 keyboard.builtIn = 1
 keyboard.layout = stmpe_azerty
-keyboard.characterMap = stmpe
+keyboard.characterMap = stmpe_azerty
