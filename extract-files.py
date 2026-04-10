@@ -21,6 +21,14 @@ from extract_utils.main import (
 import extract_utils.tools
 extract_utils.tools.DEFAULT_PATCHELF_VERSION = '0_9'
 
+# POST-EXTRACT MANUAL PATCHES — reapply after running this script:
+#
+#   vendor/blackberry/sdm660-common/Android.bp:
+#     Add `check_elf_files: false,` to the libloc_pla and libloc_stub
+#     cc_prebuilt_library_shared entries. The blobs are missing shared_libs
+#     DT_NEEDED declarations; the runtime linker still resolves them, but
+#     Soong's static ELF check refuses to build without the bypass.
+
 namespace_imports = [
     'device/blackberry/sdm660-common',
     'hardware/qcom-caf/msm8998',
