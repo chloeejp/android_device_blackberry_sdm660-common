@@ -23,11 +23,15 @@ extract_utils.tools.DEFAULT_PATCHELF_VERSION = '0_9'
 
 # POST-EXTRACT MANUAL PATCHES — reapply after running this script:
 #
-#   vendor/blackberry/sdm660-common/Android.bp:
-#     Add `check_elf_files: false,` to the libloc_pla and libloc_stub
-#     cc_prebuilt_library_shared entries. The blobs are missing shared_libs
-#     DT_NEEDED declarations; the runtime linker still resolves them, but
-#     Soong's static ELF check refuses to build without the bypass.
+#   vendor/blackberry/sdm660-common/
+#     - Remove libloc_pla and libloc_stub from PRODUCT_PACKAGES in
+#       sdm660-common-vendor.mk (dead code — nothing in the runtime graph
+#       DT_NEEDs these libs; source-built libgps.utils/libloc_core only
+#       include libloc_pla_headers at compile time, never link against the
+#       .so at runtime).
+#     - Remove the cc_prebuilt_library_shared entries for libloc_pla and
+#       libloc_stub from Android.bp.
+#     - Remove libloc_pla.so and libloc_stub.so from proprietary/vendor/lib64/.
 
 namespace_imports = [
     'device/blackberry/sdm660-common',
